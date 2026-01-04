@@ -47,7 +47,7 @@ const About = () => {
         <section className="main-section">
             <div className="container about">
                 <h2>About Me</h2>
-                <div>
+                <div className="about-content">
                     Hi! I'm Balakrishnan, a passionate web developer specializing in building responsive and user-friendly websites. I love turning ideas into functional, interactive web experiences. With a strong foundation in HTML, CSS, JavaScript and React, I enjoy solving problems and continuously learning new technologies to create websites that are both beautiful and efficient
                 </div>
             </div>

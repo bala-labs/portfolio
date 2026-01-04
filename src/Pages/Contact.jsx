@@ -1,4 +1,5 @@
 import React from 'react'; 
+import ContactForm from '../Components/ContactForm';
 
 const CurrLocation = React.memo(({ src }) => (
     <iframe className='loc' title="location" src={src}  allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
@@ -15,27 +16,7 @@ const Contact = () => {
                 </div>
 
                 <div className="container form">
-                    <form className="contact-form">
-                        <div className="form-section">
-                            <label>Name:</label>
-                            <input type='text' name='name' id='name' placeholder='Enter your name' />
-                        </div>
-                        <div className="form-section">
-                            <label>Email:</label>
-                            <input type='text' name='email' id='email' placeholder='Enter your email' />
-                        </div>
-                        <div className="form-section">
-                            <label>Phone Number:</label>
-                            <input type='phone' name='phone' id='phone' placeholder='Enter your phone number' />
-                        </div>
-                        <div className="form-section">
-                            <label>Message:</label>
-                            <textarea name='message' id="message" placeholder="Enter your message"></textarea>
-                        </div>
-                        <div className="form-btn">
-                            <button type='submit'>Submit</button>
-                        </div>
-                    </form>
+                    <ContactForm />
                 </div>
             </div>
             <div className="address-info">
@@ -54,7 +35,6 @@ const Contact = () => {
                     </div>
                 </div>
                 <div className="container location">
-                    <h2>Address</h2>
                     <div>
                         <CurrLocation src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31458.89073281067!2d77.7690350139722!3d9.735427580808373!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b0728fed8011731%3A0x751252975ebdfdb3!2sPeraiyur%2C%20Tamil%20Nadu%20625703!5e0!3m2!1sen!2sin!4v1767089954916!5m2!1sen!2sin" />
                     </div>

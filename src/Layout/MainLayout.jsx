@@ -12,7 +12,7 @@ const MainLayout = () => {
             </main>
 
             <footer>
-                <div>&copy; Copyright 2025 All Rights Reserved | Designed By Bala</div>
+                <div>&copy; Copyright 2025 All Rights Reserved | Designed By <a href="#">Bala</a></div>
             </footer>
         </div>
     );

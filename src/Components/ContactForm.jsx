@@ -1,0 +1,81 @@
+import { useState } from "react";
+import Notification from './Notification'
+
+const initialForm = {
+    name: "",
+    email: "",
+    phone: "",
+    message: ""
+}
+
+const Form = () => {
+    const [formData, setFormData] = useState(initialForm);
+    const [message, setMessage] = useState('');
+    const [error, setError] = useState(initialForm);
+
+    const handleChange = (e) => {
+        const {name, value} = e.target;
+        error[name] && setError((error) => ({...error, [name]: ""}));
+        setFormData({ ...formData, [name]: value });
+    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        if (!formData.name.trim() || !formData.email.trim() || !formData.phone.trim()) {
+            if (!formData.name.trim()) setError((error) => ({...error, name: "* Name is required"}));
+            if (!formData.email.trim()) setError((error) => ({...error, email: "* Email is required"}));
+            if (!formData.phone.trim()) setError((error) => ({...error, phone: "* Phone Number is required"}));
+
+            return;
+        }
+
+        if (!/^[a-zA-Z\s]+$/.test(formData.name.trim())) {
+            setError((error) => ({...error, name: "* Invalid Name"}));
+            return;
+        }
+
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email.trim())) {
+            setError((error) => ({...error, email: "* Invalid Email Address"}));
+            return;
+        }
+
+        if (isNaN(formData.phone.trim().length) || formData.phone.trim().length !== 10) {
+            setError((error) => ({...error, phone: "* Invalid Phone Number"}));
+            return;
+        }
+
+        setMessage("You request submitted successfully.");
+        setFormData(initialForm);
+        setError(initialForm);
+    }
+
+    return (
+        <form className="contact-form" onSubmit={handleSubmit}>
+            <div className="form-section">
+                <label htmlFor='name'>Name:</label>
+                <input type='text' name='name' id='name' placeholder='Enter your name' onChange={handleChange} value={formData.name} autoComplete="true" />
+                {error.name && <p className='error'>{error.name}</p>}
+            </div>
+            <div className="form-section">
+                <label htmlFor='email'>Email:</label>
+                <input type='text' name='email' id='email' placeholder='Enter your email' onChange={handleChange} value={formData.email} autoComplete="true" />
+                {error.email && <p className='error'>{error.email}</p>}
+            </div>
+            <div className="form-section">
+                <label htmlFor='phone'>Phone Number:</label>
+                <input type='phone' name='phone' id='phone' placeholder='Enter your phone number' onChange={handleChange} value={formData.phone} autoComplete="true" />
+                {error.phone && <p className='error'>{error.phone}</p>}
+            </div>
+            <div className="form-section">
+                <label htmlFor='message'>Message:</label>
+                <textarea name='message' id="message" placeholder="Enter your message" onChange={handleChange} value={formData.message}></textarea>
+            </div>
+            <div className="form-btn">
+                <button type='submit'>Submit</button>
+            </div>
+            {message && <Notification message={message} closeMessage={setMessage} />}
+        </form>
+    );
+}
+
+export default Form;

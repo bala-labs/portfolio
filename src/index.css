@@ -52,7 +52,7 @@ header {
     justify-content: space-between;
     width: 100%;
     padding: 2em;
-    height: 10vh;
+    height: 4.5rem;
     background: var(--header-footer-bg-color);
     border-bottom: 3px solid var(--header-footer-border-color);
     z-index: 1;
@@ -93,9 +93,8 @@ button:hover {
 }
 
 main {
-    margin-top: 10vh;
-    /* padding: 2em 3em; */
-    position: relative;
+    margin-top: 4.5rem;
+    min-height: 80vh;
 }
 
 body::-webkit-scrollbar {
@@ -103,7 +102,7 @@ body::-webkit-scrollbar {
 }
 
 .main-section {
-    display: flex;
+    flex: 1;
     flex-direction: column;
     gap: 1em;
 }
@@ -113,6 +112,11 @@ body::-webkit-scrollbar {
     flex-direction: column;
     gap: 1rem;
     padding: 1.5rem 3rem;
+}
+
+.intro {
+    font-size: 1.2rem;
+    font-weight: 600;
 }
 
 h2, h3{
@@ -201,7 +205,7 @@ h2, h3{
 }
 
 footer {
-    height: 10vh;
+    height: 4.5rem;
     width: 100%;
     display: flex;
     align-items: center;
@@ -264,6 +268,7 @@ footer {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
+    position: relative;
 }
 
 .form-section label {
@@ -276,6 +281,13 @@ footer {
     padding: 1rem;
 }
 
+.error {
+    position: absolute;
+    left: 2%;
+    bottom: -30%;
+    color: red
+}
+
 .form-btn {
     display: flex;
     justify-content: center;
@@ -283,8 +295,8 @@ footer {
 
 .loc {
     border: none;
-    height: 50vh;
-    width: 40vw;
+    height: 20rem;
+    width: 25rem;
 }
 
 .menu-bar {
@@ -333,7 +345,7 @@ footer {
 .contact-form {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 1.5rem;
     background: var(--surface-color);
     padding: 2rem;
     border-radius: var(--radius);
@@ -343,10 +355,12 @@ footer {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
+    width: 50%;
 }
 
-.address-info, h2 {
-    text-align: left;
+.links, .location {
+    display: flex;
+    align-items: center;
 }
 
 .contact-links {
@@ -354,6 +368,10 @@ footer {
     justify-content: center;
     flex-direction: column;
     gap: 0.5rem;
+}
+
+.contact-links p {
+    font-weight: 600;
 }
 
 .contact-links a, .contact-links div {
@@ -375,6 +393,84 @@ footer {
     gap: 1rem;
 }
 
+.notification-container {
+    position: fixed;
+    top: 10%;
+    right: 3%;
+    background: var(--bg-color);
+    border: 2px solid var(--border-color);
+    width: 28%;
+    border-radius: 8px;
+    margin: 1rem 1.5rem;
+    transition: background-color var(--transition);
+    z-index: 1;
+}
+
+.notification {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem;
+}
+
+.notification-content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.notification-content p {
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.notification-content span {
+    font-size: 1.2rem;
+}
+
+.cancel-btn {
+    background: transparent;
+    padding: 0;
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--text-color)
+}
+
+.cancel-btn:hover {
+    background: transparent;
+    color: rgb(243, 66, 66);
+}
+
+.progress-bar {
+    /* background: #fff; */
+    width: 100%;
+    height: 3px;
+    border-radius: 0 0 var(--radius) var(--radius);
+}
+
+.progress {
+    width: 100%;
+    height: 100%;
+    background: var(--text-color);
+    animation: slide 7s linear forwards;
+    border-radius: 0 0 var(--radius) var(--radius);
+}
+
+@keyframes slide {
+    100% {
+        width: 0%;
+    } 75% {
+        width: 25%;
+    } 50% {
+        width: 50%;
+    } 25% {
+        width: 75%;
+    } 0% {
+        width: 100%;
+    }
+}
+
 @keyframes spin {
     to {
         transform: rotate(360deg);
@@ -387,17 +483,25 @@ footer {
         justify-content: center;
     }
 
-    .loc {
-        height: 50vh;
-        width: 80vw;
-    }
-
     .contacts {
         flex-direction: column;
     }
 
     nav {
         display: none;
+    }
+
+    .address-info {
+        width: 100%;
+        padding: 0 1rem
+    }
+
+    .about-content {
+        text-align: justify;
+    }
+
+    .notification-container {
+        width: 60%;
     }
 
     .menu-bar {
@@ -419,13 +523,21 @@ footer {
         flex-direction: column;
     }
 
-    .loc {
-        height: 50vh;
-        width: 90vw;
+    .address-info {
+        width: 100%;
+        padding: 0 1rem
+    }
+
+    .notification-container {
+        width: 60%;
     }
 
     nav {
         display: none;
+    }
+
+    .about-content {
+        text-align: justify;
     }
 
     .menu-bar {
@@ -446,17 +558,21 @@ footer {
         flex-direction: row;
     }
 
-    .loc {
-        height: 45vh;
-        width: 35vw;
-    }
-
     nav {
         display: flex;
     }
 
     .menu-bar {
         display: none;
+    }
+
+    .address-info {
+        width: 50%;
+        padding: 0;
+    }
+
+    .notification-container {
+        width: 30%;
     }
 
     footer {
@@ -473,17 +589,21 @@ footer {
         width: 50%;
     }
 
-    .loc {
-        height: 45vh;
-        width: 35vw;
-    }
-
     .contacts {
         flex-direction: row;
     }
 
+    .address-info {
+        width: 50%;
+        padding: 0;
+    }
+
     nav {
         display: flex;
+    }
+
+    .notification-container {
+        width: 30%;
     }
 
     .menu-bar {

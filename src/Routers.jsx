@@ -9,10 +9,12 @@ const Routers = () => {
     const Home = lazy(() => import("./Pages/Home"));
     const About = lazy(() => import("./Pages/About"));
     const Contact = lazy(() => import("./Pages/Contact"));
+    const ScrollTop = lazy(() => import("./Components/ScrollTop"))
 
     return (
         <ErrorBoundary>
             <Suspense fallback={<LoadingScreen />}>
+                <ScrollTop />
                 <Routes>
                     <Route path='/' element={<MainLayout />}>
                         <Route index element={<Home />}/>

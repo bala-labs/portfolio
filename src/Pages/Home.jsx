@@ -23,10 +23,10 @@ const Home = () => {
 
     return (
         <section className="main-section">
-            <div className="container">
+            <div className="container intro">
                 <p>Hi, I'm Balakrishnan</p>
                 <p>Frontend Developer | Python Developer</p>
-                <p>I build clean, fast and responsive web applications.</p>
+                <p>I build clean, fast and responsive web applications</p>
             </div>
 
             <div className="container project">
