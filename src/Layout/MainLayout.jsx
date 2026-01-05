@@ -12,10 +12,11 @@ const MainLayout = () => {
             </main>
 
             <footer>
-                <div>&copy; Copyright 2025 All Rights Reserved | Designed By <a href="#">Bala</a></div>
+                <div>&copy; Copyright 2025 All Rights Reserved | Designed By <a href="/">Bala</a></div>
             </footer>
         </div>
     );
 }
+
 
 export default MainLayout;
