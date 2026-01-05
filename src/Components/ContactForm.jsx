@@ -46,8 +46,8 @@ const Form = () => {
 
         fetch("/", {
           method: "POST",
-          headers: { "Content-Type": "application/x-www-form-urlencoded" },
-          body: new URLSearchParams(new FormData(formData)).toString(),
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(formData.entries()),
         }).then(() => {
             setMessage("You request submitted successfully.");
             setFormData(initialForm);
