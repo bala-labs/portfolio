@@ -8,6 +8,8 @@ const initialForm = {
     message: ""
 }
 
+const encode = (data) => Object.keys(data).map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key])).join("&");
+
 const Form = () => {
     const [formData, setFormData] = useState(initialForm);
     const [message, setMessage] = useState('');
@@ -44,11 +46,13 @@ const Form = () => {
             return;
         }
 
-        const netlifyData = new FormData(e.target);
-
         fetch("/", {
           method: "POST",
-          body: netlifyData
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          body: encode({
+                "form-name": "contact",
+                ...formData
+            })
         }).then(() => {
             setMessage("You request submitted successfully.");
             setFormData(initialForm);
@@ -78,7 +82,7 @@ const Form = () => {
             </div>
             <div className="form-section">
                 <label htmlFor='phone'>Phone Number:</label>
-                <input type='phone' name='phone' id='phone' placeholder='Enter your phone number' onChange={handleChange} value={formData.phone} autoComplete="true" />
+                <input type='tel' name='phone' id='phone' placeholder='Enter your phone number' onChange={handleChange} value={formData.phone} autoComplete="true" />
                 {error.phone && <p className='error'>{error.phone}</p>}
             </div>
             <div className="form-section">
