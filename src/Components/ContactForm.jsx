@@ -51,6 +51,11 @@ const Form = () => {
 
     return (
         <form method="POST" data-netlify="true" data-netlify-honeypot="bot-field" className="contact-form" onSubmit={handleSubmit}>
+            <input type="hidden" name="form-name" value="contact" />
+            <p hidden>
+                <label>Don’t fill this out: <input name="bot-field" /></label>
+            </p>
+            
             <div className="form-section">
                 <label htmlFor='name'>Name:</label>
                 <input type='text' name='name' id='name' placeholder='Enter your name' onChange={handleChange} value={formData.name} autoComplete="true" />
