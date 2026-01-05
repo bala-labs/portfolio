@@ -44,10 +44,11 @@ const Form = () => {
             return;
         }
 
+        const netlifyData = new FormData(e.target);
+
         fetch("/", {
           method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(formData),
+          body: netlifyData
         }).then(() => {
             setMessage("You request submitted successfully.");
             setFormData(initialForm);
@@ -59,7 +60,7 @@ const Form = () => {
     }
 
     return (
-        <form method="POST" data-netlify="true" data-netlify-honeypot="bot-field" className="contact-form" onSubmit={handleSubmit}>
+        <form name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" className="contact-form" onSubmit={handleSubmit}>
             <input type="hidden" name="form-name" value="contact" />
             <p hidden>
                 <label>Don't fill this out: <input name="bot-field" /></label>
