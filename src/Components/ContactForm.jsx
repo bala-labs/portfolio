@@ -50,7 +50,7 @@ const Form = () => {
     }
 
     return (
-        <form className="contact-form" onSubmit={handleSubmit}>
+        <form method="POST" data-netlify="true" data-netlify-honeypot="bot-field" className="contact-form" onSubmit={handleSubmit}>
             <div className="form-section">
                 <label htmlFor='name'>Name:</label>
                 <input type='text' name='name' id='name' placeholder='Enter your name' onChange={handleChange} value={formData.name} autoComplete="true" />
