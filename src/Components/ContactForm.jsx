@@ -47,7 +47,7 @@ const Form = () => {
         fetch("/", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(formData.entries()),
+          body: JSON.stringify(formData),
         }).then(() => {
             setMessage("You request submitted successfully.");
             setFormData(initialForm);
