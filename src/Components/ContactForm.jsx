@@ -44,9 +44,15 @@ const Form = () => {
             return;
         }
 
-        setMessage("You request submitted successfully.");
-        setFormData(initialForm);
-        setError(initialForm);
+        fetch("/", {
+          method: "POST",
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          body: new URLSearchParams(new FormData(formData)).toString(),
+        }).then(() => {
+            setMessage("You request submitted successfully.");
+            setFormData(initialForm);
+            setError(initialForm);
+        });
     }
 
     return (
