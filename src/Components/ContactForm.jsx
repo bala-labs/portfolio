@@ -21,46 +21,51 @@ const Form = () => {
         setFormData({ ...formData, [name]: value });
     }
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        if (!formData.name.trim() || !formData.email.trim() || !formData.phone.trim()) {
-            if (!formData.name.trim()) setError((error) => ({...error, name: "* Name is required"}));
-            if (!formData.email.trim()) setError((error) => ({...error, email: "* Email is required"}));
-            if (!formData.phone.trim()) setError((error) => ({...error, phone: "* Phone Number is required"}));
+        // setMessage("You request submitted successfully.");
+        // if (!formData.name.trim() || !formData.email.trim() || !formData.phone.trim()) {
+        //     if (!formData.name.trim()) setError((error) => ({...error, name: "* Name is required"}));
+        //     if (!formData.email.trim()) setError((error) => ({...error, email: "* Email is required"}));
+        //     if (!formData.phone.trim()) setError((error) => ({...error, phone: "* Phone Number is required"}));
 
-            return;
-        }
+        //     return;
+        // }
 
-        if (!/^[a-zA-Z\s]+$/.test(formData.name.trim())) {
-            setError((error) => ({...error, name: "* Invalid Name"}));
-            return;
-        }
+        // if (!/^[a-zA-Z\s]+$/.test(formData.name.trim())) {
+        //     setError((error) => ({...error, name: "* Invalid Name"}));
+        //     return;
+        // }
 
-        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email.trim())) {
-            setError((error) => ({...error, email: "* Invalid Email Address"}));
-            return;
-        }
+        // if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email.trim())) {
+        //     setError((error) => ({...error, email: "* Invalid Email Address"}));
+        //     return;
+        // }
 
-        if (isNaN(formData.phone.trim().length) || formData.phone.trim().length !== 10) {
-            setError((error) => ({...error, phone: "* Invalid Phone Number"}));
-            return;
-        }
+        // if (isNaN(formData.phone.trim().length) || formData.phone.trim().length !== 10) {
+        //     setError((error) => ({...error, phone: "* Invalid Phone Number"}));
+        //     return;
+        // }
 
-        fetch("/", {
-          method: "POST",
-          headers: { "Content-Type": "application/x-www-form-urlencoded" },
-          body: encode({
-                "form-name": "contact",
-                ...formData
-            })
-        }).then(() => {
+        try {
+            let response = await fetch("/j", {
+                method: "POST",
+                headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                body: encode({
+                    "form-name": "contact",
+                    ...formData
+                })
+            });
+
+            if (!response.ok) {
+                throw new Error(`Request Failed. ${response.status}`);
+            } 
+
             setMessage("You request submitted successfully.");
-            setFormData(initialForm);
-            setError(initialForm);
-        }).catch((err) => {
+        } catch(err) {
             setMessage("Error Occured.");
             console.error(err.message);
-        });
+        }
     }
 
     return (
