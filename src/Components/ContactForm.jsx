@@ -23,29 +23,29 @@ const Form = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        // setMessage("You request submitted successfully.");
-        // if (!formData.name.trim() || !formData.email.trim() || !formData.phone.trim()) {
-        //     if (!formData.name.trim()) setError((error) => ({...error, name: "* Name is required"}));
-        //     if (!formData.email.trim()) setError((error) => ({...error, email: "* Email is required"}));
-        //     if (!formData.phone.trim()) setError((error) => ({...error, phone: "* Phone Number is required"}));
 
-        //     return;
-        // }
+        if (!formData.name.trim() || !formData.email.trim() || !formData.phone.trim()) {
+            if (!formData.name.trim()) setError((error) => ({...error, name: "* Name is required"}));
+            if (!formData.email.trim()) setError((error) => ({...error, email: "* Email is required"}));
+            if (!formData.phone.trim()) setError((error) => ({...error, phone: "* Phone Number is required"}));
 
-        // if (!/^[a-zA-Z\s]+$/.test(formData.name.trim())) {
-        //     setError((error) => ({...error, name: "* Invalid Name"}));
-        //     return;
-        // }
+            return;
+        }
 
-        // if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email.trim())) {
-        //     setError((error) => ({...error, email: "* Invalid Email Address"}));
-        //     return;
-        // }
+        if (!/^[a-zA-Z\s]+$/.test(formData.name.trim())) {
+            setError((error) => ({...error, name: "* Invalid Name"}));
+            return;
+        }
 
-        // if (isNaN(formData.phone.trim().length) || formData.phone.trim().length !== 10) {
-        //     setError((error) => ({...error, phone: "* Invalid Phone Number"}));
-        //     return;
-        // }
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email.trim())) {
+            setError((error) => ({...error, email: "* Invalid Email Address"}));
+            return;
+        }
+
+        if (isNaN(formData.phone.trim().length) || formData.phone.trim().length !== 10) {
+            setError((error) => ({...error, phone: "* Invalid Phone Number"}));
+            return;
+        }
 
         try {
             let response = await fetch("/j", {
