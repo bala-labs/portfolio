@@ -14,7 +14,7 @@ const projects = [
         title: "FITNEST",
         description: "FitNest is a modern gym focused on strength, fitness, and a healthier lifestyle.",
         tech: "HTML, CSS, JS",
-        link: "https://bala050.github.io/FitNest/",
+        link: "https://bala-labs.github.io/fitnest",
         src: `${process.env.PUBLIC_URL}/assets/fitnest.jpg`
     }
 ];
