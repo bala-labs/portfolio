@@ -36,7 +36,7 @@ const Header = () => {
 
     return (
         <header>
-            <h1>Bala | Dev</h1>
+            <h2>Bala | Dev</h2>
             <nav>
                 <NavLink to="/" className={({ isActive }) => isActive ? "active" : ""}>Home</NavLink>
                 <NavLink to="about" className={({ isActive }) => isActive ? "active" : ""}>About</NavLink>
