@@ -1,45 +1,5 @@
-const exps = [
-    {
-        id: "e1",
-        title: "Infinstor",
-        description: "The MLOps Operating System helps data scientists build next generation machine learning workflows with the click of a button.",
-        role: "Sofware Developer",
-        src: `${process.env.PUBLIC_URL}/assets/infinstor.webp`
-    }
-];
-
-const skills = [
-    {
-        id: "languages",
-        title: "Languages",
-        tools: "Python, C, Java"
-    },
-    {
-        id: "front-end",
-        title: "Front-End",
-        tools: "HTML, CSS, JS, React"
-    },
-    {
-        id: "back-end",
-        title: "Back-End",
-        tools: "fastAPI"
-    },
-    {
-        id: "db",
-        title: "Databases",
-        tools: "MySQL"
-    },
-    {
-        id: "testing",
-        title: "Testing",
-        tools: "Unit Testing, Selenium Automation, Pytest"
-    },
-    {
-        id: "others",
-        title: "Other Skills",
-        tools: "Git & GitHub, XPath, API integration, Responsive Design"
-    }
-];
+import { exps } from '../Data/experience';
+import { skills } from '../Data/skills';
 
 const About = () => {
 
