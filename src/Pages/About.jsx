@@ -50,10 +50,9 @@ const About = () => {
 
             <div className="container resume">
                 <div className='download-section'>
-                    <p>Download my resume to view my education, technical skills, and project experience.</p>
-                    <a href='../Resume/Balakrishnan_Resume.pdf' download>
-                        <button className="resume-btn">My Resume</button>
-                    </a>
+                    <p><a href='../Resume/Balakrishnan_Resume.pdf' download>
+                        <span title='My Resume' className='fa fa-download'></span>
+                    </a> Download my resume to view my education, technical skills, and project experience.</p>
                 </div>
             </div>
         </section>

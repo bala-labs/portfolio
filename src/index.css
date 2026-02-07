@@ -1,6 +1,6 @@
 :root {
     --bg-color: #f9fafb;
-    --surface-color: #f3f0f0;
+    --surface-color: #ddd8d8;
     --text-color: #111827;
     --text-muted: #6b7280;
     --border-color: #e5e7eb;
@@ -11,7 +11,7 @@
     --header-footer-border-color: #e5e7eb;
     --shadow: 0 0.25rem 0.75 rgba(0, 0, 0, 0.08);
     --radius: 8px;
-    --transition: 0.3s ease;
+    --transition: 0.3s ease-in-out;
 }
 
 [data-theme="dark"] {
@@ -44,6 +44,17 @@ body {
     line-height: 1.5;
 }
 
+.scroll-top {
+    position: fixed;
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.scroll-top.show {
+    opacity: 1;
+}
+
 header {
     position: fixed;
     top: 0;
@@ -51,7 +62,6 @@ header {
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    height: 4.5rem;
     background: var(--header-footer-bg-color);
     border-bottom: 3px solid var(--header-footer-border-color);
     z-index: 1;
@@ -93,7 +103,7 @@ button:hover {
 }
 
 main {
-    margin-top: 4.5rem;
+    margin-top: 5.5rem;
     min-height: 80vh;
 }
 
@@ -224,11 +234,10 @@ footer {
     transform: none;
 }
 
-.download-section, .contact-me {
+.download-section {
     display: flex;
-    flex-wrap: wrap;
     flex-direction: row;
-    gap: 1rem;
+    gap: 0.5rem;
     align-items: center;
 }
 
@@ -476,6 +485,13 @@ footer {
 }
 
 @media (min-width: 40px) {
+    .scroll-top {
+        right: 45%;
+        border-radius: 50%;
+        padding: 0.6rem 0.7rem;
+        bottom: 7%;
+    }
+
     header {
         padding: 1rem;
     }
@@ -519,16 +535,24 @@ footer {
     }
 
     footer {
-        font-size: 0.8rem;
+        font-size: 0.9rem;
     }
 }
 
 @media (min-width: 650px) {
+    .scroll-top {
+        right: 47%;
+        border-radius: 50%;
+        padding: 0.6rem 0.7rem;
+        bottom: 7%;
+    }
+
     .container {
         padding: 1.5rem 3rem;
     }
 
     header {
+        height: 4.5rem;
         padding: 2rem;
     }
 
@@ -567,17 +591,28 @@ footer {
     }
 
     footer {
-        font-size: 0.8rem;
+        font-size: 1rem;
     }
 }
 
 @media (min-width: 900px) {
+    .scroll-top {
+        right: 1%;
+        border-radius: var(--radius);
+        padding: 0.7rem 1rem;
+        bottom: 10%;
+    }
+
     .testimonial-container {
         grid-template-columns: repeat(3, minmax(280px, 360px));
     }
 
     .contacts {
         flex-direction: row;
+    }
+
+    header {
+        height: 5.5rem;
     }
 
     .loc {
@@ -607,6 +642,13 @@ footer {
 }
 
 @media (min-width: 1024px) {
+    .scroll-top {
+        right: 1%;
+        border-radius: var(--radius);   
+        padding: 0.7rem 1rem;
+        bottom: 10%;
+    }
+
     .testimonial-container {
         grid-template-columns: repeat(4, minmax(280px, 360px));
     }

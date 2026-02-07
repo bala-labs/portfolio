@@ -24,14 +24,15 @@ const Contact = () => {
                     <h2>Reach Me</h2>
                     <div className="contact-links">
                         <div><span className="fa fa-map-marker-alt"></span> <p>Peraiyur, Madurai, Tamilnadu - 625703</p></div>
-                        <a href="tel:+917639324276"><span className="fa fa-phone-volume"></span> <p>+91 7639324276</p></a>
+                        <a href="tel:+917639324276"><span className="fa fa-phone"></span> <p>+91 7639324276</p></a>
                         <a href="mailto:balakrishnan.connect@gmail.com"><span className="fa fa-envelope"></span> <p>balakrishnan.connect@gmail.com</p></a>
                     </div>
                     <div className="social-link">
-                        <a href="https://www.linkedin.com/in/balakrishnan-s-247a3b23b" target="_blank" rel="noreferrer"><span className="fab fa-linkedin"></span></a>
-                        <a href="https://www.github.com/bala-labs" target="_blank" rel="noreferrer"><span className="fab fa-github"></span></a>
-                        <a href="https://www.instagram.com/s_b_krish/" target="_blank" rel="noreferrer"><span className="fab fa-instagram"></span></a>
-                        <a href="https://www.facebook.com/share/16y46VXi3A/" target="_blank" rel="noreferrer"><span className="fab fa-facebook"></span></a>
+                        <a href="https://www.fiverr.com/baladevworks?public_mode=true" title='freelance' target="_blank" rel="noreferrer"><span className='fa fa-briefcase'></span></a>
+                        <a href="https://www.linkedin.com/in/balakrishnan-s-247a3b23b" title='linkedin' target="_blank" rel="noreferrer"><span className="fab fa-linkedin"></span></a>
+                        <a href="https://www.github.com/bala-labs" target="_blank" title='github' rel="noreferrer"><span className="fab fa-github"></span></a>
+                        <a href="https://www.instagram.com/s_b_krish/" target="_blank" title='instagram' rel="noreferrer"><span className="fab fa-instagram"></span></a>
+                        <a href="https://www.facebook.com/share/16y46VXi3A/" target="_blank" title='facebook' rel="noreferrer"><span className="fab fa-facebook"></span></a>
                     </div>
                 </div>
                 <div className="container location">

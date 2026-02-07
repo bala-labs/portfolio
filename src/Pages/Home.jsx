@@ -36,8 +36,7 @@ const Home = () => {
 
             <div className="container hire">
                 <div className="contact-me">
-                    <p>Looking for a dedicated developer to collaborate with? Let's build something meaningful together.</p>
-                    <Link to="/contact">Get In Touch</Link>
+                    <p>Looking for a dedicated developer to collaborate with? Let's build something meaningful together -  <Link to="/contact">Get In Touch</Link></p>
                 </div>
             </div>
         </section>

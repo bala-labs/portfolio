@@ -1,15 +1,13 @@
-import { ThemeContext } from '../Context/ThemeContext';
-import { useContext } from 'react';
-
-const ErrorScreen = ({ error }) => {
-    const { state } = useContext(ThemeContext);
+const ErrorScreen = () => {
 
     return (
-        <div className="error-container" data-theme={state.theme}>
-            <h1>Something Went Wrong..</h1>
-            <div>
-                {error.stack}
-            </div>
+        <div className="error-container">
+            <img 
+                src={`${process.env.PUBLIC_URL}/assets/ErrorPic.png`}
+                height={450} 
+                width={450}
+                alt="ErrorScreen"
+            />
         </div>
     );
 }
