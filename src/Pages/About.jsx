@@ -8,7 +8,7 @@ const About = () => {
             <div className="container about">
                 <h2>About Me</h2>
                 <div className="about-content">
-                    Hi! I'm Balakrishnan, a passionate web developer specializing in building responsive and user-friendly websites. I love turning ideas into functional, interactive web experiences. With a strong foundation in HTML, CSS, JavaScript and React, I enjoy solving problems and continuously learning new technologies to create websites that are both beautiful and efficient
+                    Hi! I'm Balakrishnan, a passionate web developer specializing in building responsive and user-friendly websites. I love turning ideas into functional, interactive web experiences. With a strong foundation in HTML, CSS, JavaScript and React, I enjoy solving problems and continuously learning new technologies to create websites that are both beautiful and efficient.
                 </div>
             </div>
 
@@ -52,7 +52,7 @@ const About = () => {
                 <div className='download-section'>
                     <p><a href='../Resume/Balakrishnan_Resume.pdf' download>
                         <span title='My Resume' className='fa fa-download'></span>
-                    </a> Download my resume to view my education, technical skills, and project experience.</p>
+                    </a> Download my resume to view my education, technical skills and project experience.</p>
                 </div>
             </div>
         </section>

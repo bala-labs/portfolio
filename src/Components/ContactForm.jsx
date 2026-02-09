@@ -63,9 +63,12 @@ const Form = () => {
 
             setMessage("You request submitted successfully.");
         } catch(err) {
-            setMessage("Error Occured.");
+            setMessage("Error Occured: Please try again later.");
             console.error(err.message);
+            setError(err.message);
         }
+
+        setFormData(initialForm);
     }
 
     return (

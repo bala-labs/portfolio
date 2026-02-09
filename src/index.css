@@ -1,6 +1,6 @@
 :root {
-    --bg-color: #f9fafb;
-    --surface-color: #ddd8d8;
+    --bg-color: #f4f4f4;
+    --surface-color: #cacacc;
     --text-color: #111827;
     --text-muted: #6b7280;
     --border-color: #e5e7eb;
@@ -8,7 +8,7 @@
     --primary-hover: #1d4ed8;
     --active-color: #3cc4e9;
     --header-footer-bg-color: #ffffff;
-    --header-footer-border-color: #e5e7eb;
+    --header-footer-border-color: #c5c5c5d6;
     --shadow: 0 0.25rem 0.75 rgba(0, 0, 0, 0.08);
     --radius: 8px;
     --transition: 0.3s ease-in-out;
@@ -42,13 +42,20 @@ body {
     color: var(--text-color);
     transition: background var(--transition), color var(--transition);
     line-height: 1.5;
+    cursor: default;
 }
 
 .scroll-top {
     position: fixed;
     z-index: 1;
     opacity: 0;
+    padding: 0.6rem;
     transition: opacity 0.5s ease-in-out;
+    background: #4b4b4b;
+}
+
+.scroll-top:hover {
+    background: #333;
 }
 
 .scroll-top.show {
@@ -75,8 +82,20 @@ nav {
     font-size: 1.2rem;
 }
 
-.active {
+a.active, a.active:hover {
     color: var(--active-color);
+    position: relative;
+}
+
+nav .active::after {
+    content: '';
+    position: absolute;
+    bottom: -20%;
+    left: 35%;
+    height: 0.25rem;
+    width: 40%;
+    background-color: var(--active-color);
+    border-radius: var(--radius);
 }
 
 a {
@@ -103,7 +122,6 @@ button:hover {
 }
 
 main {
-    margin-top: 5.5rem;
     min-height: 80vh;
 }
 
@@ -371,6 +389,11 @@ footer {
     align-items: center;
 }
 
+#message {
+    resize: vertical;
+    min-height: 10vh;
+}
+
 .contact-links {
     display: flex;
     justify-content: center;
@@ -488,7 +511,6 @@ footer {
     .scroll-top {
         right: 45%;
         border-radius: 50%;
-        padding: 0.6rem 0.7rem;
         bottom: 7%;
     }
 
@@ -505,12 +527,20 @@ footer {
         justify-content: center;
     }
 
+    .card-content p {
+        text-align: justify;
+    }
+
     .contacts {
         flex-direction: column;
     }
 
     nav {
         display: none;
+    }
+
+    main {
+        margin-top: 4rem;
     }
 
     .address-info {
@@ -543,7 +573,6 @@ footer {
     .scroll-top {
         right: 47%;
         border-radius: 50%;
-        padding: 0.6rem 0.7rem;
         bottom: 7%;
     }
 
@@ -559,6 +588,10 @@ footer {
     .testimonial-container {
         grid-template-columns: repeat(2, minmax(280px, 360px));
         justify-content: center;
+    }
+
+    .card-content p {
+        text-align: justify;
     }
 
     .contacts {
@@ -599,8 +632,11 @@ footer {
     .scroll-top {
         right: 1%;
         border-radius: var(--radius);
-        padding: 0.7rem 1rem;
         bottom: 10%;
+    }
+
+    .card-content p {
+        text-align: left;
     }
 
     .testimonial-container {
@@ -627,6 +663,10 @@ footer {
         display: none;
     }
 
+    main {
+        margin-top: 5.5rem;
+    }
+
     .address-info {
         width: 50%;
         padding: 0;
@@ -644,13 +684,16 @@ footer {
 @media (min-width: 1024px) {
     .scroll-top {
         right: 1%;
-        border-radius: var(--radius);   
-        padding: 0.7rem 1rem;
+        border-radius: var(--radius);
         bottom: 10%;
     }
 
     .testimonial-container {
         grid-template-columns: repeat(4, minmax(280px, 360px));
+    }
+
+    .card-content p {
+        text-align: left;
     }
 
     .contact-content {

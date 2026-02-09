@@ -1,9 +1,10 @@
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { useEffect, useState, useRef } from 'react';
 
 const Header = () => {
     const [isOpen, setIsOpen] = useState(false);
     const navRef = useRef(null);
+    const Navigate = useNavigate();
 
     const handleMenuClick = () => {
         setIsOpen(!isOpen);
@@ -25,7 +26,7 @@ const Header = () => {
 
     return (
         <header>
-            <h2>Bala | Dev</h2>
+            <h2 onClick={() => Navigate('/')}>Bala | Dev</h2>
             <nav>
                 <NavLink to="/" className={({ isActive }) => isActive ? "active" : ""}>Home</NavLink>
                 <NavLink to="about" className={({ isActive }) => isActive ? "active" : ""}>About</NavLink>

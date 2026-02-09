@@ -20,7 +20,7 @@ const Home = () => {
                                 <div className="image-container">
                                     <img className="card-image" alt={project.title} src={project.src} />
                                     <div className="overlay-text">
-                                        <p><a href={project.link} target="_blank" rel="noreferrer">{"View Project >"}</a></p>
+                                        <p><a href={project.link} target="_blank" rel="noreferrer">View Project <span className="fa fa-arrow-right"></span></a></p>
                                     </div>
                                 </div>
                                 <div className="card-content">

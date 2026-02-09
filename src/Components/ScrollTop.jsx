@@ -14,7 +14,7 @@ const ScrollTop = () => {
     }
 
     return (
-        <button onClick={() => window.scrollTo(0, 0)} className={`scroll-top ${isScroll && 'show'}`}>
+        <button title='Go Top' onClick={() => window.scrollTo(0, 0)} className={`scroll-top ${isScroll && 'show'}`}>
             <span className='fa fa-arrow-up'></span>
         </button>
     );
