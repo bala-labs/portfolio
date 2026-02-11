@@ -5,10 +5,9 @@ const Home = () => {
 
     return (
         <section className="main-section">
-            <div className="container intro">
-                <p>Hi, I'm Balakrishnan</p>
-                <p>Frontend Developer | Python Developer</p>
-                <p>I build clean, fast and responsive web applications</p>
+            <div className="container hero-section">
+                <h2>Hi, I'm <span>Balakrishnan</span></h2>
+                <p>Full Stack Developer building modern web applications using React, FastAPI, and modern CSS.</p>
             </div>
 
             <div className="container project">
@@ -26,7 +25,7 @@ const Home = () => {
                                 <div className="card-content">
                                     <h3>{project.title}</h3>
                                     <p>{project.description}</p>
-                                    <p><b>Used Technolgies:</b> {project.tech}</p>
+                                    <div><b>Used Technolgies:</b> <span>{project.tech}</span></div>
                                 </div>
                             </li>
                         ))}

@@ -26,7 +26,7 @@ const Header = () => {
 
     return (
         <header>
-            <h2 onClick={() => Navigate('/')}>Bala | Dev</h2>
+            <h1 onClick={() => Navigate('/')}>Balakrishnan</h1>
             <nav>
                 <NavLink to="/" className={({ isActive }) => isActive ? "active" : ""}>Home</NavLink>
                 <NavLink to="about" className={({ isActive }) => isActive ? "active" : ""}>About</NavLink>

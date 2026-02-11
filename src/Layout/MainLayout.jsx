@@ -1,4 +1,4 @@
-import { Outlet } from 'react-router-dom'
+import { Outlet, Link } from 'react-router-dom'
 import Header from '../Components/Header';
 
 const MainLayout = () => {
@@ -12,7 +12,7 @@ const MainLayout = () => {
             </main>
 
             <footer>
-                <div>&copy; Copyright 2025 All Rights Reserved | Designed By <a href="/">Bala</a></div>
+                <div>&copy; {new Date().getFullYear()} All Rights Reserved | Designed By <Link to="/">Bala</Link></div>
             </footer>
         </div>
     );

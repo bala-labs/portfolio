@@ -20,7 +20,7 @@ const About = () => {
                             skills.map((skill) => (
                                 <li className="testimonial-card skill-container" key={skill.id}>
                                     <h4>{skill.title}</h4>
-                                    <div>{skill.tools}</div>
+                                    <p>{skill.tools}</p>
                                 </li>
                             ))
                         }
@@ -40,7 +40,7 @@ const About = () => {
                                 <div className="card-content">
                                     <h3>{exp.title}</h3>
                                     <p>{exp.description}</p>
-                                    <p><b>Role:</b> {exp.role}</p>
+                                    {exp.role && <div><b>Role:</b> <span>{exp.role}</span></div>}
                                 </div>
                             </li>
                         ))}

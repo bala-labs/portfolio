@@ -1,30 +1,16 @@
 :root {
-    --bg-color: #f4f4f4;
-    --surface-color: #cacacc;
-    --text-color: #111827;
-    --text-muted: #6b7280;
+    --bg-color: #0f172a;
+    --surface-color: #1e293b;
+    --text-color: #f1f5f9;
+    --text-muted: #94a3b8;
     --border-color: #e5e7eb;
     --primary-color: #2563eb;
     --primary-hover: #1d4ed8;
     --active-color: #3cc4e9;
-    --header-footer-bg-color: #ffffff;
-    --header-footer-border-color: #c5c5c5d6;
+    --footer-color: #020617;
     --shadow: 0 0.25rem 0.75 rgba(0, 0, 0, 0.08);
-    --radius: 8px;
+    --radius: 14px;
     --transition: 0.3s ease-in-out;
-}
-
-[data-theme="dark"] {
-    --bg-color: #0f172a;
-    --surface-color: #1e293b;
-    --text-color: #f8fafc;
-    --text-muted: #94a3b8;
-    --border-color: #334155;
-    --primary-color: #3b82f6;
-    --primary-hover: #60a5fa;
-    --header-footer-bg-color: #020617;
-    --header-footer-border-color: #1e293b;
-    --shadow: 0 0.25rem 0.75 rgba(0, 0, 0, 0.6);
 }
 
 * {
@@ -51,11 +37,12 @@ body {
     opacity: 0;
     padding: 0.6rem;
     transition: opacity 0.5s ease-in-out;
-    background: #4b4b4b;
+    color: #333;
+    background-color: white;
 }
 
 .scroll-top:hover {
-    background: #333;
+    background: #ccc;
 }
 
 .scroll-top.show {
@@ -63,15 +50,15 @@ body {
 }
 
 header {
-    position: fixed;
+    position: sticky;
     top: 0;
     display: flex;
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    background: var(--header-footer-bg-color);
-    border-bottom: 3px solid var(--header-footer-border-color);
+    background: rgba(15, 23, 42, 0.7);
     z-index: 1;
+    backdrop-filter: blur(10px);
 }
 
 nav {
@@ -79,7 +66,15 @@ nav {
     flex-direction: row;
     align-items: center;
     gap: 1rem;
-    font-size: 1.2rem;
+}
+
+header h1 {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+nav a, .navbar a {
+    color: var(--text-muted);
 }
 
 a.active, a.active:hover {
@@ -101,11 +96,11 @@ nav .active::after {
 a {
     text-decoration: none;
     font-weight: 700;
-    color: var(--text-color);
+    color: var(--text-muted);
 }
 
 a:hover {
-    color: var(--primary-hover);
+    color: var(--primary-color);
 }
 
 button {
@@ -123,6 +118,7 @@ button:hover {
 
 main {
     min-height: 80vh;
+    padding: 0.5rem 0.7rem;
 }
 
 body::-webkit-scrollbar {
@@ -135,26 +131,37 @@ body::-webkit-scrollbar {
     gap: 1em;
 }
 
+.hero-section {
+    height: 50vh;
+    display: flex;
+    justify-content: center;
+}
+
+.hero-section h2 {
+    text-align: left;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.hero-section span {
+    color: #6366f1;
+}
+
 .container {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
 }
 
-.intro {
-    font-size: 1.2rem;
-    font-weight: 600;
-}
-
-h2, h3{
+h2 {
     text-align: center;
 }
 
 .testimonial-container {
     display: grid;
     grid-template-columns: repeat(autofill, minmax(280px, 1fr));
-    gap: 1.5rem;
-    padding: 1rem 1.5rem;
+    gap: 2rem;
+    padding: 1rem;
 }
 
 .testimonial-card {
@@ -162,20 +169,20 @@ h2, h3{
     flex-direction: column;
     align-items: center;
     max-width: 330px;
-    padding: 1rem;
     background: var(--surface-color);
-    border: 1px solid var(--border-color);
     border-radius: var(--radius);
-    transition: transform var(--transition), background var(--transition), border-color var(--transition), box-shadow var(--transition);
+    transition: transform var(--transition), box-shadow var(--transition);
 }
 
 .testimonial-card:hover {
     transform: translateY(-0.5rem);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.4);
 }
 
 .image-container, .company-logo {
     width: 100%;
-    height: 180px;
+    height: 200px;
+    object-fit: cover;
     position: relative;
 }
 
@@ -190,7 +197,8 @@ h2, h3{
 }
 
 .card-image {
-    border-radius: var(--radius);
+    border-top-left-radius: var(--radius);
+    border-top-right-radius: var(--radius);
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -212,7 +220,6 @@ h2, h3{
     transform: translateY(10px);
     z-index: 1;
     cursor: pointer;
-    border-radius: 0 0 var(--radius) var(--radius);
     width: 100%;
     justify-content: end;
     text-align: right;
@@ -225,10 +232,14 @@ h2, h3{
 }
 
 .card-content {
-    padding: 1rem;
+    padding: 1rem 2rem 2rem;
     display: flex;
     flex-direction: column;
     gap: 0.3em;
+}
+
+.card-content p, .card-content span {
+    color: var(--text-muted);
 }
 
 footer {
@@ -238,25 +249,31 @@ footer {
     align-items: center;
     justify-content: center;
     font-weight: 700;
-    font-size: 1.3em;
-    background: var(--header-footer-bg-color);
-    border-top: 3px solid var(--header-footer-border-color);
+    font-size: 1rem;
+    background: var(--footer-color);
+    color: var(--text-muted);
 }
 
 .skill-container {
+    padding: 1rem;
     justify-content: center;
     text-align: center;
+}
+
+.skill-container p {
+    color: var(--text-muted);
 }
 
 .skill-container:hover {
     transform: none;
 }
 
-.download-section {
+.download-section, .contact-me {
     display: flex;
     flex-direction: row;
     gap: 0.5rem;
     align-items: center;
+    text-align: justify;
 }
 
 .loading-container, .error-container {
@@ -271,14 +288,23 @@ footer {
 }
 
 .toggle-menu {
-    color: var(--bg-color);
-    background: var(--text-color);
-    font-size: 1rem;
+    color: var(--text-color);
+    background: none;
+    font-size: 1.4rem;
     padding: 0.5rem 1rem;
+}
+
+.toggle-menu:hover {
+    background: none;
 }
 
 .error-container {
     flex-direction: column;
+}
+
+.err-msg {
+    text-align: center;
+    font-size: 1.5rem;
 }
 
 .spinner {
@@ -333,7 +359,7 @@ footer {
     position: absolute;
     display: flex;
     background: var(--bg-color);
-    border: 3px solid var(--border-color);
+    border: 2px solid var(--border-color);
     flex-direction: column;
     top: 120%;
     left: -190%;
@@ -341,19 +367,14 @@ footer {
     border-radius: var(--radius);
 }
 
-.navbar a, .navbar span {
-    border-bottom: 3px solid var(--border-color);
+.navbar a {
+    border-bottom: 2px solid var(--border-color);
     padding: 1rem 0.7rem;
+    font-weight: 700;
 }
 
-.navbar span {
+.navbar a:last-child {
     border-bottom: none;
-    cursor: pointer;
-    font-weight: 700;
-} 
-
-.navbar span:hover {
-    color: var(--primary-hover);
 }
 
 .contacts {
@@ -410,6 +431,7 @@ footer {
     align-items: center;
     flex-direction: row;
     gap: 1rem;
+    color: var(--text-color);
 }
 
 .contact-links span {
@@ -422,6 +444,14 @@ footer {
     align-items: center;
     font-size: 1.7rem;
     gap: 1rem;
+}
+
+.social-link a {
+    color: var(--text-color);
+}
+
+.social-link a:hover, .contact-links a:hover {
+    color: var(--primary-color);
 }
 
 .notification-container {
@@ -519,7 +549,11 @@ footer {
     }
 
     .container {
-        padding: 1.5rem;
+        padding: 0.7rem 1.5rem;
+    }
+
+    .links {
+        padding: 0.7rem 0.7em;
     }
 
     .testimonial-container {
@@ -537,10 +571,6 @@ footer {
 
     nav {
         display: none;
-    }
-
-    main {
-        margin-top: 4rem;
     }
 
     .address-info {
@@ -563,10 +593,6 @@ footer {
     .menu-bar {
         display: block;
     }
-
-    footer {
-        font-size: 0.9rem;
-    }
 }
 
 @media (min-width: 650px) {
@@ -577,7 +603,7 @@ footer {
     }
 
     .container {
-        padding: 1.5rem 3rem;
+        padding: 0.7rem 1.5rem;;
     }
 
     header {
@@ -622,10 +648,6 @@ footer {
     .menu-bar {
         display: block;
     }
-
-    footer {
-        font-size: 1rem;
-    }
 }
 
 @media (min-width: 900px) {
@@ -637,6 +659,10 @@ footer {
 
     .card-content p {
         text-align: left;
+    }
+
+    .container {
+        padding: 1.5rem 3rem;
     }
 
     .testimonial-container {
@@ -663,10 +689,6 @@ footer {
         display: none;
     }
 
-    main {
-        margin-top: 5.5rem;
-    }
-
     .address-info {
         width: 50%;
         padding: 0;
@@ -674,10 +696,6 @@ footer {
 
     .notification-container {
         width: 30%;
-    }
-
-    footer {
-        font-size: 1.3rem;
     }
 }
 
@@ -723,9 +741,5 @@ footer {
 
     .menu-bar {
         display: none;
-    }
-
-    footer {
-        font-size: 1.3rem;
     }
 }

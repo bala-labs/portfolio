@@ -63,7 +63,7 @@ const Form = () => {
 
             setMessage("You request submitted successfully.");
         } catch(err) {
-            setMessage("Error Occured: Please try again later.");
+            setMessage("Error: Please try again later.");
             console.error(err.message);
             setError(err.message);
         }
