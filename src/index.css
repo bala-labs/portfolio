@@ -139,7 +139,6 @@ body::-webkit-scrollbar {
 
 .hero-section h2 {
     text-align: left;
-    font-size: 2.5rem;
     margin-bottom: 1rem;
 }
 
@@ -573,6 +572,10 @@ footer {
         display: none;
     }
 
+    .hero-section h2 {
+        font-size: 2rem;
+    }
+
     .address-info {
         width: 100%;
         padding: 0 1rem
@@ -609,6 +612,10 @@ footer {
     header {
         height: 4.5rem;
         padding: 2rem;
+    }
+
+    .hero-section h2 {
+        font-size: 2.5rem;
     }
 
     .testimonial-container {
