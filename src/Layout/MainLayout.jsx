@@ -4,7 +4,7 @@ import Header from '../Components/Header';
 const MainLayout = () => {
 
     return (
-        <div>
+        <div className='app'>
             <Header />
 
             <main>

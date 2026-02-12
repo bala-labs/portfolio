@@ -49,6 +49,12 @@ body {
     opacity: 1;
 }
 
+.app {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
 header {
     position: sticky;
     top: 0;
@@ -251,6 +257,7 @@ footer {
     font-size: 1rem;
     background: var(--footer-color);
     color: var(--text-muted);
+    align-self: flex-end;
 }
 
 .skill-container {
@@ -552,7 +559,7 @@ footer {
     }
 
     .links {
-        padding: 0.7rem 0.7em;
+        padding: 0.7rem 0.5rem;
     }
 
     .testimonial-container {
