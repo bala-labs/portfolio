@@ -12,7 +12,7 @@ const Header = () => {
 
     useEffect(() => {
         const handleClickOutside = (e) => {
-            if (navRef.current && !navRef.current.contains(e.target)) {
+            if (navRef.current && !navRef.current.contains(e.target) && !document.querySelector('.toggle-menu').contains(e.target)) {
                 setIsOpen(false);
             }
         }

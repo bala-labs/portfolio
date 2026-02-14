@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+sitemap: https://balakrishnan-dev-portfolio.netlify.app/sitemap.xml

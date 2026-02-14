@@ -75,8 +75,8 @@ nav {
 }
 
 header h1 {
-  font-size: 1.5rem;
-  font-weight: 600;
+    font-size: 1.5rem;
+    font-weight: 600;
 }
 
 nav a, .navbar a {
@@ -125,6 +125,7 @@ button:hover {
 main {
     min-height: 80vh;
     padding: 0.5rem 0.7rem;
+    overflow: hidden;
 }
 
 body::-webkit-scrollbar {
@@ -138,6 +139,7 @@ body::-webkit-scrollbar {
 }
 
 .hero-section {
+    position: relative;
     height: 50vh;
     display: flex;
     justify-content: center;
@@ -150,6 +152,27 @@ body::-webkit-scrollbar {
 
 .hero-section span {
     color: #6366f1;
+}
+
+.my-pic {
+    position: absolute;
+    top: -2%;
+    right: -2%;
+    background-color: green;
+    width: 30vw;
+    height: 52vh;
+    border-bottom-left-radius: 70%;
+}
+
+.my-pic::after {
+    content: '';
+    position: absolute;
+    background: rgba(255, 255, 255, 0.326);
+    left: -3%;
+    height: 103%;
+    width: 100%;
+    z-index: -1;
+    border-bottom-left-radius: 70%;
 }
 
 .container {
@@ -297,7 +320,7 @@ footer {
     color: var(--text-color);
     background: none;
     font-size: 1.4rem;
-    padding: 0.5rem 1rem;
+    padding: 0;
 }
 
 .toggle-menu:hover {
@@ -310,7 +333,7 @@ footer {
 
 .err-msg {
     text-align: center;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
 }
 
 .spinner {
