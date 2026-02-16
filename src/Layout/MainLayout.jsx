@@ -12,7 +12,7 @@ const MainLayout = () => {
             </main>
 
             <footer>
-                <div>&copy; {new Date().getFullYear()} All Rights Reserved | Designed By <Link to="/">Bala</Link></div>
+                <div>&copy; {new Date().getFullYear()} <Link to="/">Balakrishnan</Link>. All Rights Reserved.</div>
             </footer>
         </div>
     );

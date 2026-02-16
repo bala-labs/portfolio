@@ -18,7 +18,7 @@ export const projects = [
     {
         id: "p3",
         title: "SMARTCHAT",
-        description: "SmartChat is a Chat Application which is used to response to user queries.",
+        description: "SmartChat is an AI Chat Application which is used to response to user queries.",
         tech: "React, CSS, FastApi (Python)",
         link: "https://smartchat-dev.vercel.app",
         src: `${process.env.PUBLIC_URL}/assets/smartchat.jpeg`

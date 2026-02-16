@@ -35,6 +35,7 @@ body {
     position: fixed;
     z-index: 1;
     opacity: 0;
+    display: none;
     padding: 0.6rem;
     transition: opacity 0.5s ease-in-out;
     color: #333;
@@ -46,6 +47,7 @@ body {
 }
 
 .scroll-top.show {
+    display: block;
     opacity: 1;
 }
 
@@ -390,10 +392,12 @@ footer {
     background: var(--bg-color);
     border: 2px solid var(--border-color);
     flex-direction: column;
-    top: 120%;
-    left: -190%;
-    width: 300%;
+    top: 130%;
+    left: -350%;
+    width: 500%;
     border-radius: var(--radius);
+    backdrop-filter: blur(18px);
+    --webkit-backdrop-filter: blur(18px);
 }
 
 .navbar a {
@@ -524,7 +528,9 @@ footer {
     padding: 0;
     font-weight: 600;
     font-size: 1rem;
-    color: var(--text-color)
+    color: var(--text-color);
+    display: flex;
+    align-items: center;
 }
 
 .cancel-btn:hover {
@@ -549,12 +555,6 @@ footer {
 @keyframes slide {
     100% {
         width: 0%;
-    } 75% {
-        width: 25%;
-    } 50% {
-        width: 50%;
-    } 25% {
-        width: 75%;
     } 0% {
         width: 100%;
     }
@@ -582,7 +582,7 @@ footer {
     }
 
     .links {
-        padding: 0.7rem 0.5rem;
+        padding: 0.7rem 0.2rem;
     }
 
     .testimonial-container {
@@ -615,7 +615,7 @@ footer {
         padding: 0 1rem
     }
 
-    .about-content {
+    .about-content, .contact {
         text-align: justify;
     }
 
