@@ -13,7 +13,7 @@ export const projects = [
         description: "FitNest is a modern GYM focused on strength, fitness, and a healthier lifestyle.",
         tech: "HTML, CSS, JS",
         link: "https://bala-labs.github.io/fitnest",
-        src: `${process.env.PUBLIC_URL}/assets/fitnest.jpg`
+        src: `${process.env.PUBLIC_URL}/assets/fitnest.jpeg`
     }, 
     {
         id: "p3",

@@ -7,7 +7,7 @@ const Home = () => {
         <section className="main-section">
             <div className="container hero-section">
                 <h2>Hi, I'm <span>Balakrishnan</span></h2>
-                <p>Full Stack Developer building modern web applications using React, FastAPI, and modern CSS.</p>
+                <p>Full Stack Developer building modern web applications using React, Python, and modern CSS.</p>
                 {/* <div className="my-pic">
 
                 </div> */}

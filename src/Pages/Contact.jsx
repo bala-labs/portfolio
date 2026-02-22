@@ -31,7 +31,7 @@ const Contact = () => {
                         <a href="https://www.fiverr.com/baladevworks?public_mode=true" title='freelance' target="_blank" rel="noreferrer"><span className='fa fa-briefcase'></span></a>
                         <a href="https://www.linkedin.com/in/balakrishnan-s-247a3b23b" title='linkedin' target="_blank" rel="noreferrer"><span className="fab fa-linkedin"></span></a>
                         <a href="https://www.github.com/bala-labs" target="_blank" title='github' rel="noreferrer"><span className="fab fa-github"></span></a>
-                        <a href="https://www.instagram.com/s_b_krish/" target="_blank" title='instagram' rel="noreferrer"><span className="fab fa-instagram"></span></a>
+                        <a href="https://www.instagram.com/balakrishnandev?igsh=OTQ1dTh0N2o2Nmk1" target="_blank" title='instagram' rel="noreferrer"><span className="fab fa-instagram"></span></a>
                         <a href="https://www.facebook.com/share/16y46VXi3A/" target="_blank" title='facebook' rel="noreferrer"><span className="fab fa-facebook"></span></a>
                     </div>
                 </div>
@@ -42,7 +42,7 @@ const Contact = () => {
                 </div>
 
             </div>
-        </section>
+        </section> 
     );
 }
 
