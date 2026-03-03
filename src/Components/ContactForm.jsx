@@ -24,10 +24,9 @@ const Form = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        if (!formData.name.trim() || !formData.email.trim() || !formData.phone.trim()) {
+        if (!formData.name.trim() || !formData.email.trim()) {
             if (!formData.name.trim()) setError((error) => ({...error, name: "* Name is required"}));
             if (!formData.email.trim()) setError((error) => ({...error, email: "* Email is required"}));
-            if (!formData.phone.trim()) setError((error) => ({...error, phone: "* Phone Number is required"}));
 
             return;
         }
@@ -42,7 +41,7 @@ const Form = () => {
             return;
         }
 
-        if (isNaN(formData.phone.trim().length) || formData.phone.trim().length !== 10) {
+        if (isNaN(formData.phone.trim()) || (formData.phone.trim().length !== 0 && formData.phone.trim().length !== 10)) {
             setError((error) => ({...error, phone: "* Invalid Phone Number"}));
             return;
         }
