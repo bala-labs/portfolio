@@ -7,14 +7,14 @@ export const projects = [
     //     link: "https://ilaktechofficial-droid.github.io/ilaktechofficial/",
     //     src: `${process.env.PUBLIC_URL}/assets/ilaktech.jpeg`
     // },
-    // {
-    //     id: "p2",
-    //     title: "FITNEST",
-    //     description: "FitNest is a modern GYM focused on strength, fitness, and a healthier lifestyle.",
-    //     tech: "HTML, CSS, JS",
-    //     link: "https://bala-labs.github.io/fitnest",
-    //     src: `${process.env.PUBLIC_URL}/assets/fitnest.jpeg`
-    // }, 
+    {
+        id: "p2",
+        title: "FITNEST",
+        description: "FitNest is a modern GYM focused on strength, fitness, and a healthier lifestyle.",
+        tech: "React, CSS, FastApi(Python)",
+        link: "https://fitnest-gym-service.vercel.app",
+        src: `${process.env.PUBLIC_URL}/assets/fitnest.jpeg`
+    }, 
     {
         id: "p3",
         title: "SMARTCHAT",

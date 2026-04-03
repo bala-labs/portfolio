@@ -180,7 +180,7 @@ body::-webkit-scrollbar {
 .container {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 1rem;
 }
 
 h2 {
@@ -283,6 +283,35 @@ footer {
     background: var(--footer-color);
     color: var(--text-muted);
     align-self: flex-end;
+}
+
+.service {
+    padding: 2rem 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.service-icon {
+    padding: 1rem;
+    font-size: 1.4rem;
+    background: #6366f1;
+    border-radius: 50%;
+}
+
+.service-icon span {
+    height: 1rem;
+    width: 2rem;
+}
+
+.service-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.service-content ul {
+    padding: 0 1.3rem;
 }
 
 .skill-container {

@@ -27,6 +27,6 @@ export const skills = [
     {
         id: "others",
         title: "Other Skills",
-        tools: "Git & GitHub, XPath, API integration, Responsive Design"
+        tools: "Git & GitHub, API integration, Responsive Design, SEO"
     }
 ];

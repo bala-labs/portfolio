@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
-import { projects } from '../Data/projects'
+import { projects } from '../Data/projects';
+import { service } from '../Data/services';
 
 const Home = () => {
 
@@ -7,10 +8,35 @@ const Home = () => {
         <section className="main-section">
             <div className="container hero-section">
                 <h2>Hi, I'm <span>Balakrishnan</span></h2>
-                <p>Full Stack Developer building modern web applications using React, Python, and modern CSS.</p>
+                <p>I build modern web applications and automate workflows that save time and scale efficiently.</p>
                 {/* <div className="my-pic">
 
                 </div> */}
+            </div>
+
+            <div className="container services">
+                    <h2>My Services</h2>
+                    <div>
+                        <ul className="testimonial-container">
+                            {service.map((item) => (
+                                <li key={item.id} 
+                                className="testimonial-card service">
+                                    <div className="service-icon">
+                                        <span className={item.icon}></span>
+                                    </div>
+                                    <div className="service-content">
+                                        <h4>{item.name}</h4>
+                                        <p>{item.content}</p>
+                                        <ul>
+                                            {item.features.map(f => (
+                                                <li>{f}</li>
+                                            ))}
+                                        </ul>
+                                    </div>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
             </div>
 
             <div className="container project">
