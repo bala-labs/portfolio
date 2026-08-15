@@ -1,12 +1,12 @@
 export const projects = [
-    // {
-    //     id: "p1",
-    //     title: "ILAKTECH",
-    //     description: "Ilaktech helps companies find the right candidates by delivering efficient staffing solutions.",
-    //     tech: "HTML, CSS, JS, PHP",
-    //     link: "https://ilaktechofficial-droid.github.io/ilaktechofficial/",
-    //     src: `${process.env.PUBLIC_URL}/assets/ilaktech.jpeg`
-    // },
+    {
+        id: "p1",
+        title: "SANETOOLS",
+        description: "Fast, private, browser-based tools for everyday developer tasks.",
+        tech: "Next.js, CSS",
+        link: "https://sanetools.vercel.app",
+        src: `${process.env.PUBLIC_URL}/assets/sanetools.png`
+    },
     {
         id: "p2",
         title: "FITNEST",
