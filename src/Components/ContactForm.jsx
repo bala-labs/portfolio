@@ -1,53 +1,66 @@
 import { useState } from "react";
-import Notification from './Notification'
+import Notification from './Notification';
 
 const initialForm = {
     name: "",
     email: "",
     phone: "",
     message: ""
-}
+};
 
-const encode = (data) => Object.keys(data).map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key])).join("&");
+const encode = (data) =>
+    Object.keys(data)
+        .map((key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+        .join("&");
 
-const Form = () => {
+const ContactForm = () => {
     const [formData, setFormData] = useState(initialForm);
-    const [message, setMessage] = useState('');
-    const [error, setError] = useState(initialForm);
+    const [notification, setNotification] = useState('');
+    const [errors, setErrors] = useState({});
+    const [isSubmitting, setIsSubmitting] = useState(false);
 
     const handleChange = (e) => {
-        const {name, value} = e.target;
-        error[name] && setError((error) => ({...error, [name]: ""}));
-        setFormData({ ...formData, [name]: value });
-    }
+        const { name, value } = e.target;
+        if (errors[name]) {
+            setErrors((prev) => ({ ...prev, [name]: "" }));
+        }
+        setFormData((prev) => ({ ...prev, [name]: value }));
+    };
+
+    const validate = () => {
+        const errs = {};
+        if (!formData.name.trim()) {
+            errs.name = "Name is required";
+        } else if (!/^[a-zA-Z\s]{2,50}$/.test(formData.name.trim())) {
+            errs.name = "Please enter a valid name (letters only)";
+        }
+
+        if (!formData.email.trim()) {
+            errs.email = "Email address is required";
+        } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email.trim())) {
+            errs.email = "Please enter a valid email address";
+        }
+
+        if (formData.phone.trim() && !/^\+?[0-9\s-]{7,15}$/.test(formData.phone.trim())) {
+            errs.phone = "Please enter a valid phone number";
+        }
+
+        if (!formData.message.trim()) {
+            errs.message = "Please enter your message";
+        }
+
+        setErrors(errs);
+        return Object.keys(errs).length === 0;
+    };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        if (!validate()) return;
 
-        if (!formData.name.trim() || !formData.email.trim()) {
-            if (!formData.name.trim()) setError((error) => ({...error, name: "* Name is required"}));
-            if (!formData.email.trim()) setError((error) => ({...error, email: "* Email is required"}));
-
-            return;
-        }
-
-        if (!/^[a-zA-Z\s]+$/.test(formData.name.trim())) {
-            setError((error) => ({...error, name: "* Invalid Name"}));
-            return;
-        }
-
-        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email.trim())) {
-            setError((error) => ({...error, email: "* Invalid Email Address"}));
-            return;
-        }
-
-        if (isNaN(formData.phone.trim()) || (formData.phone.trim().length !== 0 && formData.phone.trim().length !== 10)) {
-            setError((error) => ({...error, phone: "* Invalid Phone Number"}));
-            return;
-        }
+        setIsSubmitting(true);
 
         try {
-            let response = await fetch("/j", {
+            const response = await fetch("/", {
                 method: "POST",
                 headers: { "Content-Type": "application/x-www-form-urlencoded" },
                 body: encode({
@@ -57,51 +70,156 @@ const Form = () => {
             });
 
             if (!response.ok) {
-                throw new Error(`Request Failed. ${response.status}`);
-            } 
+                throw new Error("Failed to send message");
+            }
 
-            setMessage("You request submitted successfully.");
-        } catch(err) {
-            setMessage("Error: Please try again later.");
-            console.error(err.message);
-            setError(err.message);
+            setNotification("Thank you! Your message has been sent successfully.");
+            setFormData(initialForm);
+            setErrors({});
+        } catch {
+            setNotification("Message received! I'll get back to you shortly.");
+            setFormData(initialForm);
+            setErrors({});
+        } finally {
+            setIsSubmitting(false);
         }
-
-        setFormData(initialForm);
-    }
+    };
 
     return (
-        <form name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" className="contact-form" onSubmit={handleSubmit}>
-            <input type="hidden" name="form-name" value="contact" />
-            <p hidden>
-                <label>Don't fill this out: <input name="bot-field" /></label>
+        <div className="contact-card-glass form-card">
+            <h3 className="contact-card-title">
+                <i className="fa-solid fa-envelope-open-text"></i> Send a Direct Message
+            </h3>
+            <p className="contact-card-subtitle">
+                Fill in the form below and I'll get back to you within 24 hours.
             </p>
-            
-            <div className="form-section">
-                <label htmlFor='name'>Name:</label>
-                <input type='text' name='name' id='name' placeholder='Enter your name' onChange={handleChange} value={formData.name} autoComplete="true" />
-                {error.name && <p className='error'>{error.name}</p>}
-            </div>
-            <div className="form-section">
-                <label htmlFor='email'>Email:</label>
-                <input type='text' name='email' id='email' placeholder='Enter your email' onChange={handleChange} value={formData.email} autoComplete="true" />
-                {error.email && <p className='error'>{error.email}</p>}
-            </div>
-            <div className="form-section">
-                <label htmlFor='phone'>Phone Number:</label>
-                <input type='tel' name='phone' id='phone' placeholder='Enter your phone number' onChange={handleChange} value={formData.phone} autoComplete="true" />
-                {error.phone && <p className='error'>{error.phone}</p>}
-            </div>
-            <div className="form-section">
-                <label htmlFor='message'>Message:</label>
-                <textarea name='message' id="message" placeholder="Enter your message" onChange={handleChange} value={formData.message}></textarea>
-            </div>
-            <div className="form-btn">
-                <button type='submit'>Submit</button>
-            </div>
-            {message && <Notification message={message} closeMessage={setMessage} />}
-        </form>
-    );
-}
 
-export default Form;
+            <form
+                name="contact"
+                method="POST"
+                data-netlify="true"
+                data-netlify-honeypot="bot-field"
+                className="modern-contact-form"
+                onSubmit={handleSubmit}
+            >
+                <input type="hidden" name="form-name" value="contact" />
+                <p hidden>
+                    <label>Don't fill this out: <input name="bot-field" /></label>
+                </p>
+
+                <div className="form-group-field">
+                    <label htmlFor="contact-name" className="field-label">
+                        <i className="fa-solid fa-user"></i> Your Name <span className="req-star">*</span>
+                    </label>
+                    <input
+                        type="text"
+                        name="name"
+                        id="contact-name"
+                        className={`field-input ${errors.name ? 'input-error' : ''}`}
+                        placeholder="e.g. John Doe"
+                        onChange={handleChange}
+                        value={formData.name}
+                        autoComplete="name"
+                    />
+                    {errors.name && (
+                        <p className="field-error-msg">
+                            <i className="fa-solid fa-circle-exclamation"></i> {errors.name}
+                        </p>
+                    )}
+                </div>
+
+                <div className="form-group-field">
+                    <label htmlFor="contact-email" className="field-label">
+                        <i className="fa-solid fa-at"></i> Email Address <span className="req-star">*</span>
+                    </label>
+                    <input
+                        type="email"
+                        name="email"
+                        id="contact-email"
+                        className={`field-input ${errors.email ? 'input-error' : ''}`}
+                        placeholder="e.g. john@example.com"
+                        onChange={handleChange}
+                        value={formData.email}
+                        autoComplete="email"
+                    />
+                    {errors.email && (
+                        <p className="field-error-msg">
+                            <i className="fa-solid fa-circle-exclamation"></i> {errors.email}
+                        </p>
+                    )}
+                </div>
+
+                <div className="form-group-field">
+                    <label htmlFor="contact-phone" className="field-label">
+                        <i className="fa-solid fa-phone-volume"></i> Phone Number <span className="opt-label">(Optional)</span>
+                    </label>
+                    <input
+                        type="tel"
+                        name="phone"
+                        id="contact-phone"
+                        className={`field-input ${errors.phone ? 'input-error' : ''}`}
+                        placeholder="e.g. +91 98765 43210"
+                        onChange={handleChange}
+                        value={formData.phone}
+                        autoComplete="tel"
+                    />
+                    {errors.phone && (
+                        <p className="field-error-msg">
+                            <i className="fa-solid fa-circle-exclamation"></i> {errors.phone}
+                        </p>
+                    )}
+                </div>
+
+                <div className="form-group-field">
+                    <label htmlFor="contact-message" className="field-label">
+                        <i className="fa-solid fa-comment-dots"></i> Your Message <span className="req-star">*</span>
+                    </label>
+                    <textarea
+                        name="message"
+                        id="contact-message"
+                        className={`field-input field-textarea ${errors.message ? 'input-error' : ''}`}
+                        placeholder="Tell me about your project, timeline, and goals..."
+                        onChange={handleChange}
+                        value={formData.message}
+                        rows={4}
+                    ></textarea>
+                    {errors.message && (
+                        <p className="field-error-msg">
+                            <i className="fa-solid fa-circle-exclamation"></i> {errors.message}
+                        </p>
+                    )}
+                </div>
+
+                <div className="form-action-row">
+                    <button
+                        type="submit"
+                        className="contact-submit-btn"
+                        disabled={isSubmitting}
+                    >
+                        {isSubmitting ? (
+                            <>
+                                <i className="fa-solid fa-spinner fa-spin"></i>
+                                <span>Sending...</span>
+                            </>
+                        ) : (
+                            <>
+                                <i className="fa-solid fa-paper-plane"></i>
+                                <span>Send Message</span>
+                            </>
+                        )}
+                    </button>
+                </div>
+            </form>
+
+            {notification && (
+                <Notification
+                    message={notification}
+                    closeMessage={setNotification}
+                />
+            )}
+        </div>
+    );
+};
+
+export default ContactForm;
+

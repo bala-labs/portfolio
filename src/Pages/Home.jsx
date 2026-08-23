@@ -15,46 +15,25 @@ const Home = () => {
             </div>
 
             <div className="container services">
-                    <h2>My Services</h2>
-                    <div>
-                        <ul className="testimonial-container">
-                            {service.map((item) => (
-                                <li key={item.id} 
-                                className="testimonial-card service">
-                                    <div className="service-icon">
-                                        <span className={item.icon}></span>
-                                    </div>
-                                    <div className="service-content">
-                                        <h4>{item.name}</h4>
-                                        <p>{item.content}</p>
-                                        <ul>
-                                            {item.features.map(f => (
-                                                <li>{f}</li>
-                                            ))}
-                                        </ul>
-                                    </div>
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
-            </div>
-
-            <div className="container project">
-                <h2>My Projects</h2>
+                <p className="section-label"><i className="fa-solid fa-cube"></i> What I Offer</p>
+                <h2 className="section-heading">Specialized <span>Services & Solutions</span></h2>
+                <p className="services-sub">From polished React frontends to robust Python backends — clean, end-to-end web engineering tailored to your goals.</p>
                 <div>
                     <ul className="testimonial-container">
-                        {projects.map((project) => (
-                            <li key={project.id} className="testimonial-card">
-                                <div className="image-container">
-                                    <img className="card-image" alt={project.title} src={project.src} />
-                                    <div className="overlay-text">
-                                        <p><a href={project.link} target="_blank" rel="noreferrer">View Project <span className="fa fa-arrow-right"></span></a></p>
-                                    </div>
+                        {service.map((item) => (
+                            <li key={item.id}
+                                className="testimonial-card service">
+                                <div className="service-icon">
+                                    <span className={item.icon}></span>
                                 </div>
-                                <div className="card-content">
-                                    <h3>{project.title}</h3>
-                                    <p>{project.description}</p>
-                                    <div><b>Used Technolgies:</b> <span>{project.tech}</span></div>
+                                <div className="service-content">
+                                    <h4>{item.name}</h4>
+                                    <p>{item.content}</p>
+                                    <ul>
+                                        {item.features.map((f, idx) => (
+                                            <li key={idx}>{f}</li>
+                                        ))}
+                                    </ul>
                                 </div>
                             </li>
                         ))}
@@ -62,10 +41,47 @@ const Home = () => {
                 </div>
             </div>
 
-            <div className="container hire">
-                <div className="contact-me">
-                    <p>Looking for a dedicated developer to collaborate with? Let's build something meaningful together -  <Link to="/contact">Get In Touch</Link></p>
+
+            <div className="container project">
+                <p className="section-label"><i className="fa-solid fa-laptop-code"></i> Portfolio Showcase</p>
+                <h2 className="section-heading">Featured <span>Projects &amp; Applications</span></h2>
+                <p className="services-sub">A selection of real-world applications I've designed, built, and shipped — from developer tools to full-stack platforms.</p>
+                <div>
+                    <ul className="testimonial-container projects-grid">
+                        {projects.map((project) => (
+                            <li key={project.id} className="testimonial-card project-card">
+                                <div className="image-container">
+                                    <img className="card-image" alt={project.title} src={project.src} />
+                                    <div className="overlay-text">
+                                        <a href={project.link} target="_blank" rel="noreferrer" className="overlay-btn">
+                                            <span className="fa fa-arrow-up-right-from-square"></span> Live Demo
+                                        </a>
+                                    </div>
+                                </div>
+                                <div className="card-content">
+                                    <h3>{project.title}</h3>
+                                    <p>{project.description}</p>
+                                    <div className="tech-tags">
+                                        {project.tech.split(',').map((t, i) => (
+                                            <span key={i} className="tech-tag">{t.trim()}</span>
+                                        ))}
+                                    </div>
+                                </div>
+                            </li>
+                        ))}
+                    </ul>
                 </div>
+            </div>
+
+            <div className="cta-section">
+                <div className="cta-glow"></div>
+                <p className="cta-eyebrow"><i className="fa-solid fa-handshake"></i> Open for collaboration</p>
+                <h2 className="cta-heading">Let's Build Something <span>Meaningful Together</span></h2>
+                <p className="cta-sub">Have a project in mind, a role to fill, or just want to connect? I'm always open to discussing new opportunities and ideas.</p>
+                <Link to="/contact" className="cta-btn">
+                    <span className="fa fa-paper-plane"></span>
+                    Get In Touch
+                </Link>
             </div>
         </section>
     );
