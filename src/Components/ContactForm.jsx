@@ -73,7 +73,7 @@ const ContactForm = () => {
                 throw new Error("Failed to send message");
             }
 
-            setNotification("Thank you! Your message has been sent successfully.");
+            setNotification("Thank you! Your message received.");
             setFormData(initialForm);
             setErrors({});
         } catch {
