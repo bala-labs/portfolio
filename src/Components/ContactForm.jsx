@@ -117,7 +117,7 @@ const ContactForm = () => {
                         name="name"
                         id="contact-name"
                         className={`field-input ${errors.name ? 'input-error' : ''}`}
-                        placeholder="e.g. John Doe"
+                        placeholder="Enter Your Full Name"
                         onChange={handleChange}
                         value={formData.name}
                         autoComplete="name"
@@ -138,7 +138,7 @@ const ContactForm = () => {
                         name="email"
                         id="contact-email"
                         className={`field-input ${errors.email ? 'input-error' : ''}`}
-                        placeholder="e.g. john@example.com"
+                        placeholder="Enter Your Email Address"
                         onChange={handleChange}
                         value={formData.email}
                         autoComplete="email"
@@ -159,7 +159,7 @@ const ContactForm = () => {
                         name="phone"
                         id="contact-phone"
                         className={`field-input ${errors.phone ? 'input-error' : ''}`}
-                        placeholder="e.g. +91 98765 43210"
+                        placeholder="Enter Your Phone Number"
                         onChange={handleChange}
                         value={formData.phone}
                         autoComplete="tel"
