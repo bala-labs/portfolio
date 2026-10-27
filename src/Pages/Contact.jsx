@@ -121,7 +121,7 @@ const Contact = () => {
                                         <span>GitHub</span>
                                     </a>
                                     <a
-                                        href="https://www.linkedin.com/in/balakrishnan-s-247a3b23b"
+                                        href="https://www.linkedin.com/in/balakrishnan-subburaj-247a3b23b/"
                                         target="_blank"
                                         rel="noreferrer"
                                         className="social-badge-pill"
