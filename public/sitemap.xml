@@ -1,17 +1,17 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
     <url>
-        <loc>https://balakrishnan-dev-portfolio.netlify.app/</loc>
+        <loc>https://balakrishnandev.netlify.app/</loc>
         <priority>1.00</priority>
     </url>
 
     <url>
-        <loc>https://balakrishnan-dev-portfolio.netlify.app/about</loc>
+        <loc>https://balakrishnandev.netlify.app/about</loc>
         <priority>0.80</priority>
     </url>
 
     <url>
-        <loc>https://balakrishnan-dev-portfolio.netlify.app/contact</loc>
+        <loc>https://balakrishnandev.netlify.app/contact</loc>
         <priority>0.80</priority>
     </url>
 
